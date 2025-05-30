@@ -86,7 +86,7 @@ commodity-sentiment-correlation/
    ```ini
    DB_HOST=localhost
    DB_PORT=3306
-   DB_NAME=commodity_db
+   DB_NAME=commodity
    DB_USER=root
    DB_PASSWORD=yourpassword
 
