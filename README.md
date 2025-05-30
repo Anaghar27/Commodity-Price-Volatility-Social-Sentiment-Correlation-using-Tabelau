@@ -19,7 +19,7 @@ This project explores the relationship between high-frequency commodity price mo
 ## Project Structure
 
 ```
-commodity-sentiment-correlation/
+Commodity-Price-Volatility-Social-Sentiment-Correlation-using-Tabelau/
 ├── analysis/ # Exploratory data analysis scripts
 │ └── exploratory_data_analysis.py
 ├── data_ingestion/ # Data extraction scripts
@@ -74,7 +74,7 @@ commodity-sentiment-correlation/
 1. Clone this repository:  
    ```bash
    git clone https://github.com/Anaghar27/Commodity-Price-Volatility-Social-Sentiment-Correlation-using-Tabelau.git
-   cd commodity-sentiment-correlation
+   cd Commodity-Price-Volatility-Social-Sentiment-Correlation-using-Tabelau
    ```
 2. Install Python dependencies:  
    ```bash
