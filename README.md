@@ -83,7 +83,15 @@ Commodity-Price-Volatility-Social-Sentiment-Correlation-using-Tabelau/
 
 ## Configuration
 
-1. Copy `.env.example` to `.env` and fill in your credentials:  
+1. Obtaining Reddit API Credentials
+- Navigate to your Reddit app preferences at https://www.reddit.com/prefs/apps.
+- Click Create App or Create Another App.
+- Select script for the application type.
+- Provide a name (e.g., commodity-sentiment-app).
+- Enter a redirect URI (e.g., http://localhost:8080).
+- Submit and note your Client ID (displayed under the app name) and Client Secret.
+
+2. Copy the below to `.env` file and fill in the credentials:  
    ```ini
    DB_HOST=localhost
    DB_PORT=3306
@@ -95,7 +103,7 @@ Commodity-Price-Volatility-Social-Sentiment-Correlation-using-Tabelau/
    REDDIT_CLIENT_SECRET=def456
    REDDIT_USER_AGENT=your_app_name
    ```
-2. Ensure your MySQL user has privileges to create databases and tables.
+3. Ensure MySQL user has privileges to create databases and tables.
 
 ## Workflow
 
