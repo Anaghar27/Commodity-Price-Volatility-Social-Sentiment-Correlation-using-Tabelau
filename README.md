@@ -14,7 +14,7 @@ This project explores the relationship between high-frequency commodity price mo
 - [Database Setup](#database-setup)
 - [Exploratory Data Analysis](#exploratory-data-analysis)
 - [Tableau Analysis](#tableau-analysis)
-- [Output Data](#output-data
+- [Output Data](#output-data)
 
 ## Project Structure
 
