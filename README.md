@@ -67,15 +67,10 @@ commodity-sentiment-correlation/
 
 1. Clone this repository:  
    ```bash
-   git clone https://github.com/yourusername/commodity-sentiment-correlation.git
+   git clone https://github.com/Anaghar27/Commodity-Price-Volatility-Social-Sentiment-Correlation-using-Tabelau.git
    cd commodity-sentiment-correlation
    ```
-2. Create and activate a virtual environment (recommended):  
-   ```bash
-   python3 -m venv venv
-   source venv/bin/activate
-   ```
-3. Install Python dependencies:  
+2. Install Python dependencies:  
    ```bash
    pip install -r requirements.txt
    ```
