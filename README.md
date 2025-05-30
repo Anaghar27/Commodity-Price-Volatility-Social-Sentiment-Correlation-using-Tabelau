@@ -122,26 +122,26 @@ Follow these steps in order:
    ```
 2. **Extract data** from source APIs:
    ```bash
-   python src/fetch_prices.py
-   python src/fetch_reddit.py
+   python data_injestion/fetch_prices.py
+   python data_injestion/fetch_reddit.py
    ```
 3. **Load into MySQL**:
    ```bash
-   python src/load_to_mysql.py --staging prices staging_prices.csv
-   python src/load_to_mysql.py --staging reddit staging_reddit.csv
-   python src/load_to_mysql.py --final prices
-   python src/load_to_mysql.py --final sentiment
+   python etl/load_to_mysql.py
    ```
 4. **Run EDA** (exploratory_data_analysis.py):
    ```bash
-   python src/exploratory_data_analysis.py
+   python analysis/exploratory_data_analysis.py
    ```
    This script generates and saves the following visuals under `reports/EDA/` and prints two-line summaries for each:
    - **Correlation Heatmap**: shows Pearson correlations between 24h volatility, average sentiment, and post count.
    - **Daily Averages for CL=F, GC=F, SI=F**: overlays volatility vs. sentiment trends for each commodity.
    - **Hourly Returns Distribution**: histograms of price returns to inspect distribution and outliers.
-
-5. **Open Tableau dashboard** for further analysis and storytelling:
+5. **Save the data to csv** by running the py file which will save all the csv files in the exports\ folder
+   ```bash
+   python scripts/export_sql_data.py
+   ```
+6. **Open Tableau dashboard** for further analysis and storytelling:
    ```bash
    open tableau/Commodity_and_Sentiment_Analysis.twbx
    ```
@@ -152,8 +152,11 @@ Follow these steps in order:
 - **fetch_reddit.py**: retrieves hourly Reddit post counts & sentiment into `staging_reddit.csv`.
 
 ## Database Setup
-
-1. **Staging Tables**: load raw CSVs:
+1. **Create databases**: Firstly the database and the tables must be created.
+   ```bash
+   mysql -u root -p < sql/schema.sql
+   ```
+1. **Staging Tables**: load the tables with data:
    ```bash
    python src/load_to_mysql.py --staging prices staging_prices.csv
    python src/load_to_mysql.py --staging reddit staging_reddit.csv
@@ -169,7 +172,7 @@ Follow these steps in order:
 
 ## Exploratory Data Analysis
 
-After running `exploratory_data_analysis.py`, check `reports/EDA/`:
+After running `exploratory_data_analysis.py`, the following outputs are shown which is saved locally in outputs\ folder where:
 
 - **Correlation Heatmap** (`Figure_1.png`): highlights low correlation (~0.008) between volatility and sentiment, moderate correlation (~0.12) between volatility and post count.
 - **CL=F Daily Averages** (`Figure_2.png`): shows sentiment spikes often follow volatility peaks, suggesting lagged sentiment response.
