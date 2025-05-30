@@ -20,33 +20,39 @@ This project explores the relationship between high-frequency commodity price mo
 
 ```
 commodity-sentiment-correlation/
-├── data/                    # Raw CSV dumps & exported metrics
-│   ├── staging_prices.csv
-│   ├── staging_reddit.csv
-│   ├── prices.csv
-│   ├── sentiment.csv
-│   └── daily_metrics.csv
-├── reports/                 # Generated visuals & EDA summaries
-│   └── EDA/
-│       ├── Figure_1.png
-│       ├── Figure_2.png
-│       ├── Figure_3.png
-│       ├── Figure_4.png
-│       └── Figure_5.png
-├── sql/                     # Database creation & transformation scripts
-│   ├── database_creation.sql
-│   ├── staging_tables.sql
-│   └── final_tables.sql
-├── src/                     # Python scripts
-│   ├── fetch_prices.py
-│   ├── fetch_reddit.py
-│   ├── load_to_mysql.py
-│   ├── exploratory_data_analysis.py
-│   └── export_sql_data.py
-├── tableau/                 # Tableau workbook
-│   └── Commodity_and_Sentiment_Analysis.twbx
-├── requirements.txt         # Python dependencies
-└── README.md
+├── analysis/ # Exploratory data analysis scripts
+│ └── exploratory_data_analysis.py
+├── data_ingestion/ # Data extraction scripts
+│ ├── fetch_prices.py
+│ └── fetch_reddit.py
+├── etl/ # Data loading utilities
+│ └── load_to_mysql.py
+├── exports/ # Raw & processed CSV exports
+│ ├── staging_prices.csv
+│ ├── staging_reddit.csv
+│ ├── prices.csv
+│ ├── sentiment.csv
+│ └── daily_metrics.csv
+├── outputs/ # Generated EDA figures
+│ ├── Figure_1.png
+│ ├── Figure_2.png
+│ ├── Figure_3.png
+│ ├── Figure_4.png
+│ └── Figure_5.png
+├── scripts/ # Utility scripts
+│ └── export_sql_data.py
+├── sql/ # Database schema & transformation SQL
+│ ├── database_creation.sql
+│ ├── staging_tables.sql
+│ ├── schema.sql
+│ ├── daily_metrics.sql
+│ └── final_tables.sql
+├── tableau/ # Tableau workbook
+│ └── Commodity_and_Sentiment_Analysis.twbx
+├── LICENSE # License file
+├── README.md # Project documentation
+└── requirements.txt # Python dependencies
+
 ```
 
 ## Features
