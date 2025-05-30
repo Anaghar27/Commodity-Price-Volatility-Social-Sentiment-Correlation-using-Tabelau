@@ -1,0 +1,465 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20251.25.0313.2002                               -->
+<workbook original-version='18.1' source-build='2025.1.0 (20251.25.0313.2002)' source-platform='mac' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <AnimationOnByDefault />
+    <MarkAnimation />
+    <ObjectModelEncapsulateLegacy />
+    <ObjectModelExtractV2 />
+    <ObjectModelTableType />
+    <SchemaViewerObjectModel />
+    <SheetIdentifierTracking />
+    <_.fcp.VConnDownstreamExtractsWithWarnings.true...VConnDownstreamExtractsWithWarnings />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='daily_metrics' inline='true' name='federated.04y3gb80bek9du162n9mk0azo10l' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='daily_metrics' name='textscan.1twzla315gjl4l1cngzyc18vg79i'>
+            <connection class='textscan' directory='/Users/anaghar/Documents/Projects/Project 4/commodity_sentiment/exports' filename='daily_metrics.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation connection='textscan.1twzla315gjl4l1cngzyc18vg79i' name='daily_metrics.csv' table='[daily_metrics#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_IN' separator=','>
+            <column datatype='date' name='date' ordinal='0' />
+            <column datatype='string' name='symbol' ordinal='1' />
+            <column datatype='real' name='daily_volatility' ordinal='2' />
+            <column datatype='real' name='daily_sentiment' ordinal='3' />
+            <column datatype='real' name='total_posts' ordinal='4' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[daily_metrics.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_GB&quot;</attribute>
+              <attribute datatype='string' name='currency'>&quot;₹&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_IN&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>date</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[date]</local-name>
+            <parent-name>[daily_metrics.csv]</parent-name>
+            <remote-alias>date</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[daily_metrics.csv_4B77901311BF4735BD68F671152945FE]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>symbol</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[symbol]</local-name>
+            <parent-name>[daily_metrics.csv]</parent-name>
+            <remote-alias>symbol</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[daily_metrics.csv_4B77901311BF4735BD68F671152945FE]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>daily_volatility</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[daily_volatility]</local-name>
+            <parent-name>[daily_metrics.csv]</parent-name>
+            <remote-alias>daily_volatility</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[daily_metrics.csv_4B77901311BF4735BD68F671152945FE]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>daily_sentiment</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[daily_sentiment]</local-name>
+            <parent-name>[daily_metrics.csv]</parent-name>
+            <remote-alias>daily_sentiment</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[daily_metrics.csv_4B77901311BF4735BD68F671152945FE]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>total_posts</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[total_posts]</local-name>
+            <parent-name>[daily_metrics.csv]</parent-name>
+            <remote-alias>total_posts</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[daily_metrics.csv_4B77901311BF4735BD68F671152945FE]</object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Sentiment Change' datatype='real' name='[Calculation_5605011226126651392]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='SUM([daily_sentiment]) - LOOKUP(SUM([daily_sentiment]), -1)'>
+          <table-calc ordering-type='Rows' />
+        </calculation>
+      </column>
+      <column caption='daily_metrics.csv' datatype='table' name='[__tableau_internal_object_id__].[daily_metrics.csv_4B77901311BF4735BD68F671152945FE]' role='measure' type='quantitative' />
+      <column caption='Daily Sentiment' datatype='real' name='[daily_sentiment]' role='measure' type='quantitative' />
+      <column caption='Daily Volatility' datatype='real' name='[daily_volatility]' role='measure' type='quantitative' />
+      <column caption='Symbol' datatype='string' name='[symbol]' role='dimension' type='nominal' />
+      <column caption='Total Posts' datatype='real' name='[total_posts]' role='measure' type='quantitative' />
+      <column-instance column='[daily_sentiment]' derivation='Avg' name='[avg:daily_sentiment:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[daily_volatility]' derivation='Avg' name='[avg:daily_volatility:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[symbol]' derivation='None' name='[none:symbol:nk]' pivot='key' type='nominal' />
+      <column-instance column='[daily_sentiment]' derivation='Sum' name='[sum:daily_sentiment:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[daily_volatility]' derivation='Sum' name='[sum:daily_volatility:qk]' pivot='key' type='quantitative' />
+      <extract _.fcp.VConnDownstreamExtractsWithWarnings.true...user-specific='false' count='-1' enabled='true' object-id='' units='records'>
+        <connection access_mode='readonly' author-locale='en_US' class='hyper' dbname='Data/tableau-temp/#TableauTemp_0gdh8gq0gh4pl3132wvg000sxjuf.hyper' default-settings='hyper' schema='Extract' sslmode='' tablename='Extract' update-time='05/28/2025 06:55:56 PM' username='tableau_internal_user'>
+          <relation name='Extract' table='[Extract].[Extract]' type='table' />
+          <metadata-records>
+            <metadata-record class='column'>
+              <remote-name>date</remote-name>
+              <remote-type>133</remote-type>
+              <local-name>[date]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>date</remote-alias>
+              <ordinal>0</ordinal>
+              <family>daily_metrics.csv</family>
+              <local-type>date</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>7</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[daily_metrics.csv_4B77901311BF4735BD68F671152945FE]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>symbol</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[symbol]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>symbol</remote-alias>
+              <ordinal>1</ordinal>
+              <family>daily_metrics.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>3</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[daily_metrics.csv_4B77901311BF4735BD68F671152945FE]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>daily_volatility</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[daily_volatility]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>daily_volatility</remote-alias>
+              <ordinal>2</ordinal>
+              <family>daily_metrics.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>21</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[daily_metrics.csv_4B77901311BF4735BD68F671152945FE]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>daily_sentiment</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[daily_sentiment]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>daily_sentiment</remote-alias>
+              <ordinal>3</ordinal>
+              <family>daily_metrics.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>19</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[daily_metrics.csv_4B77901311BF4735BD68F671152945FE]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>total_posts</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[total_posts]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>total_posts</remote-alias>
+              <ordinal>4</ordinal>
+              <family>daily_metrics.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>17</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[daily_metrics.csv_4B77901311BF4735BD68F671152945FE]</object-id>
+            </metadata-record>
+          </metadata-records>
+        </connection>
+      </extract>
+      <layout dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[:Measure Names]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.04y3gb80bek9du162n9mk0azo10l].[avg:daily_volatility:qk]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.04y3gb80bek9du162n9mk0azo10l].[sum:daily_volatility:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.04y3gb80bek9du162n9mk0azo10l].[avg:daily_sentiment:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.04y3gb80bek9du162n9mk0azo10l].[sum:daily_sentiment:qk]&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[none:symbol:nk]' palette='blue_red_brown_10_0' type='palette'>
+            <map to='#466f9d'>
+              <bucket>&quot;CL=F&quot;</bucket>
+            </map>
+            <map to='#91b3d7'>
+              <bucket>&quot;GC=F&quot;</bucket>
+            </map>
+            <map to='#ed444a'>
+              <bucket>&quot;SI=F&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;India&quot;' />
+      </semantic-values>
+      <object-graph>
+        <objects>
+          <object caption='daily_metrics.csv' id='daily_metrics.csv_4B77901311BF4735BD68F671152945FE'>
+            <properties context=''>
+              <relation connection='textscan.1twzla315gjl4l1cngzyc18vg79i' name='daily_metrics.csv' table='[daily_metrics#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_IN' separator=','>
+                  <column datatype='date' name='date' ordinal='0' />
+                  <column datatype='string' name='symbol' ordinal='1' />
+                  <column datatype='real' name='daily_volatility' ordinal='2' />
+                  <column datatype='real' name='daily_sentiment' ordinal='3' />
+                  <column datatype='real' name='total_posts' ordinal='4' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='Extract' table='[Extract].[Extract]' type='table' />
+            </properties>
+          </object>
+        </objects>
+      </object-graph>
+    </datasource>
+  </datasources>
+  <actions>
+    <action caption='Highlight 1 (generated)' name='[Action1_84D62D926C9C4824BC41A7241DA36A85]'>
+      <activation auto-clear='true' type='on-select' />
+      <source type='sheet' worksheet='Small Multiples' />
+      <command command='tsc:brush'>
+        <param name='field-captions' value='Measure Names' />
+        <param name='target' value='Small Multiples' />
+      </command>
+    </action>
+  </actions>
+  <worksheets>
+    <worksheet name='Bubble Chart'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='daily_metrics' name='federated.04y3gb80bek9du162n9mk0azo10l' />
+          </datasources>
+          <datasource-dependencies datasource='federated.04y3gb80bek9du162n9mk0azo10l'>
+            <column caption='Sentiment Change' datatype='real' name='[Calculation_5605011226126651392]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='SUM([daily_sentiment]) - LOOKUP(SUM([daily_sentiment]), -1)'>
+                <table-calc ordering-type='Rows' />
+              </calculation>
+            </column>
+            <column caption='Daily Sentiment' datatype='real' name='[daily_sentiment]' role='measure' type='quantitative' />
+            <column caption='Daily Volatility' datatype='real' name='[daily_volatility]' role='measure' type='quantitative' />
+            <column datatype='date' name='[date]' role='dimension' type='ordinal' />
+            <column-instance column='[date]' derivation='None' name='[none:date:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[symbol]' derivation='None' name='[none:symbol:nk]' pivot='key' type='nominal' />
+            <column-instance column='[daily_sentiment]' derivation='Sum' name='[sum:daily_sentiment:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[daily_volatility]' derivation='Sum' name='[sum:daily_volatility:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[total_posts]' derivation='Sum' name='[sum:total_posts:qk]' pivot='key' type='quantitative' />
+            <column caption='Symbol' datatype='string' name='[symbol]' role='dimension' type='nominal' />
+            <column caption='Total Posts' datatype='real' name='[total_posts]' role='measure' type='quantitative' />
+            <column-instance column='[Calculation_5605011226126651392]' derivation='User' name='[usr:Calculation_5605011226126651392:qk:4]' pivot='key' type='quantitative'>
+              <table-calc ordering-field='[federated.04y3gb80bek9du162n9mk0azo10l].[date]' ordering-type='Field' />
+            </column-instance>
+            <column-instance column='[date]' derivation='Year' name='[yr:date:ok]' pivot='key' type='ordinal' />
+          </datasource-dependencies>
+          <filter class='quantitative' column='[federated.04y3gb80bek9du162n9mk0azo10l].[none:date:qk]' included-values='in-range-or-null'>
+            <min>#2025-05-21#</min>
+            <max>#2025-05-28#</max>
+          </filter>
+          <slices>
+            <column>[federated.04y3gb80bek9du162n9mk0azo10l].[none:date:qk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='table'>
+            <format attr='omit-on-special' field='[federated.04y3gb80bek9du162n9mk0azo10l].[usr:Calculation_5605011226126651392:qk:4]' value='false' />
+            <format attr='break-on-special' field='[federated.04y3gb80bek9du162n9mk0azo10l].[usr:Calculation_5605011226126651392:qk:4]' value='false' />
+            <format attr='show-null-value-warning' field='[federated.04y3gb80bek9du162n9mk0azo10l].[usr:Calculation_5605011226126651392:qk:4]' value='false' />
+          </style-rule>
+          <style-rule element='worksheet'>
+            <format attr='color' value='#000000' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.04y3gb80bek9du162n9mk0azo10l].[none:symbol:nk]' />
+              <size column='[federated.04y3gb80bek9du162n9mk0azo10l].[sum:total_posts:qk]' />
+              <lod column='[federated.04y3gb80bek9du162n9mk0azo10l].[sum:daily_sentiment:qk]' />
+              <lod column='[federated.04y3gb80bek9du162n9mk0azo10l].[yr:date:ok]' />
+            </encodings>
+            <trendline enable-confidence-bands='false' enable-instant-analytics='true' enabled='true' exclude-color='false' exclude-intercept='false' fit='linear' />
+          </pane>
+        </panes>
+        <rows>[federated.04y3gb80bek9du162n9mk0azo10l].[usr:Calculation_5605011226126651392:qk:4]</rows>
+        <cols>[federated.04y3gb80bek9du162n9mk0azo10l].[sum:daily_volatility:qk]</cols>
+      </table>
+      <simple-id uuid='{351E0383-2CF1-451A-B37B-E588B58CD1CF}' />
+    </worksheet>
+    <worksheet name='Small Multiples'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='daily_metrics' name='federated.04y3gb80bek9du162n9mk0azo10l' />
+          </datasources>
+          <datasource-dependencies datasource='federated.04y3gb80bek9du162n9mk0azo10l'>
+            <column-instance column='[daily_sentiment]' derivation='Avg' name='[avg:daily_sentiment:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[daily_volatility]' derivation='Avg' name='[avg:daily_volatility:qk]' pivot='key' type='quantitative' />
+            <column caption='Daily Sentiment' datatype='real' name='[daily_sentiment]' role='measure' type='quantitative' />
+            <column caption='Daily Volatility' datatype='real' name='[daily_volatility]' role='measure' type='quantitative' />
+            <column datatype='date' name='[date]' role='dimension' type='ordinal' />
+            <column-instance column='[date]' derivation='None' name='[none:date:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[symbol]' derivation='None' name='[none:symbol:nk]' pivot='key' type='nominal' />
+            <column caption='Symbol' datatype='string' name='[symbol]' role='dimension' type='nominal' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='width' field='[federated.04y3gb80bek9du162n9mk0azo10l].[avg:daily_volatility:qk]' value='56' />
+            <format attr='width' field='[federated.04y3gb80bek9du162n9mk0azo10l].[avg:daily_sentiment:qk]' value='56' />
+            <encoding attr='space' class='0' field='[federated.04y3gb80bek9du162n9mk0azo10l].[avg:daily_sentiment:qk]' field-type='quantitative' fold='true' scope='rows' type='space' />
+          </style-rule>
+          <style-rule element='cell'>
+            <format attr='width' field='[federated.04y3gb80bek9du162n9mk0azo10l].[none:date:qk]' value='262' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Line' />
+            <encodings>
+              <color column='[federated.04y3gb80bek9du162n9mk0azo10l].[:Measure Names]' />
+            </encodings>
+          </pane>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.04y3gb80bek9du162n9mk0azo10l].[avg:daily_volatility:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Line' />
+            <encodings>
+              <color column='[federated.04y3gb80bek9du162n9mk0azo10l].[:Measure Names]' />
+            </encodings>
+          </pane>
+          <pane id='3' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.04y3gb80bek9du162n9mk0azo10l].[avg:daily_sentiment:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Area' />
+            <encodings>
+              <color column='[federated.04y3gb80bek9du162n9mk0azo10l].[:Measure Names]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>([federated.04y3gb80bek9du162n9mk0azo10l].[none:symbol:nk] * ([federated.04y3gb80bek9du162n9mk0azo10l].[avg:daily_volatility:qk] + [federated.04y3gb80bek9du162n9mk0azo10l].[avg:daily_sentiment:qk]))</rows>
+        <cols>[federated.04y3gb80bek9du162n9mk0azo10l].[none:date:qk]</cols>
+      </table>
+      <simple-id uuid='{DBAE7325-86BD-43FF-B265-69406C3F5139}' />
+    </worksheet>
+  </worksheets>
+  <windows source-height='30'>
+    <window class='worksheet' name='Small Multiples'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='2' param='[federated.04y3gb80bek9du162n9mk0azo10l].[:Measure Names]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{1D371479-D5E1-4C7F-986B-C920BF5FD416}' />
+    </window>
+    <window class='worksheet' maximized='true' name='Bubble Chart'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+            <card pane-specification-id='0' param='[federated.04y3gb80bek9du162n9mk0azo10l].[sum:total_posts:qk]' type='size' />
+            <card pane-specification-id='0' param='[federated.04y3gb80bek9du162n9mk0azo10l].[none:symbol:nk]' type='color' />
+            <card param='[federated.04y3gb80bek9du162n9mk0azo10l].[none:date:qk]' show-domain='false' show-null-ctrls='false' type='filter' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{BB5EA80A-1425-45A2-87C2-E4A18AE3E8DD}' />
+    </window>
+  </windows>
+</workbook>
